@@ -8,8 +8,7 @@ from infra.pipeline_stack import PipelineStack
 def template():
   app = App()
   stack = PipelineStack(app, "pipeline-stack-test")
-  template = Template.from_stack(stack)
-  yield template
+  yield Template.from_stack(stack)
 
 def test_pipeline_found(template):
   template.resource_count_is("AWS::CodePipeline::Pipeline", 1)
